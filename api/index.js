@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     axios
         .get(url)
         .then((resp) => {            
-            res.send(resp.data[value]);
+            res.send(resp.data[value].text);
         })
 
 }
