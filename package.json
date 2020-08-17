@@ -1,0 +1,25 @@
+{
+  "name": "zeitserveless",
+  "version": "1.0.0",
+  "description": "Test project to host serverless function on vercel.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/10kresources/zeitserveless.git"
+  },
+  "keywords": [
+    "Serverless"
+  ],
+  "author": "10KResources",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/10kresources/zeitserveless/issues"
+  },
+  "homepage": "https://github.com/10kresources/zeitserveless#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
