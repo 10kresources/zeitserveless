@@ -1,15 +1,30 @@
-const axios = require('axios')
+const lighthouse = require('lighthouse');
+const chromeLauncher = require('chrome-launcher');
 
-module.exports = (req, res) => {
-    const randomNumber = Math.random() * (1600 - 1) + 1;
-    const value = Math.floor(randomNumber);
-    const url = 'https://type.fit/api/quotes'
+const chromeFlags = [
+  '--disable-gpu',
+  '--headless',
+  '--no-zygote',
+  '--no-sandbox',
+  '--headless',
+];
 
-    axios
-        .get(url)
-        .then((resp) => {
-            let output = `<b>${resp.data[value].text}</b>`;          
-            res.send(output);
-        })
+const launchChromeAndRunLighthouse = async (url, config) => {    
+	const chrome = await chromeLauncher.launch({ chromeFlags });
 
+	const flags = {
+		port: chrome.port,
+		output: 'json',
+	};
+
+	const result = await lighthouse(url, flags, config);
+	await chrome.kill();
+
+	return result;
+};
+
+module.exports = (req, res) => {    
+    const url = 'https://www.lanternpay.com';
+    const abc = await x.launchChromeAndRunLighthouse(url);
+    res.send(abc);
 }
